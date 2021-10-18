@@ -1,0 +1,8 @@
+const mongoDbRunner = require('./runners/mongoDB')
+const httpServerRunner = require('./runners/httpServer')
+const run = () => {
+  httpServerRunner();
+  mongoDbRunner();
+}
+
+run();
