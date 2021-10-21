@@ -34,8 +34,18 @@ const createAcesToken = async (payload) => {
 
 const chekAndDecode = async (token) => {
     const pubKey = await getKey.getPublickKey();
-    const rezalt = await jws.verify(token, pubKey, {algorithms: ['RS256']});
+    const rezalt = await jwt.verify(token, pubKey, {algorithm: ['RS256']});
 
+    // const parseJwt = (token) => {
+    //     try {
+    //         token.parse(atob(token.split('.')[1]));
+    //     } catch (e) {
+    //         token
+    //     }
+    //   };
+
+      console.log(rezalt);
+      
     return rezalt;
 }
 

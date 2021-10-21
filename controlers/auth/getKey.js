@@ -15,7 +15,7 @@ const getPrivateKey = async () => {
 
 const getPublickKey = async () => {
     if (!pubKey) {
-        const keyPath = path.join(__dirname, '../../keys/prub.key');
+        const keyPath = path.join(__dirname, '../../keys/pub.key');
         console.log('keyPath: ', keyPath);
         pubKey = await fs.readFile(keyPath, 'utf-8')
     }

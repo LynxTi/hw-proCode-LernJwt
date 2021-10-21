@@ -1,5 +1,3 @@
-console.log('vse ok');
-
 const createUserForm = document.querySelector('.createUserForm');
 const authForm = document.querySelector('.authForm');
 const authBlock = document.querySelector('.auth');
@@ -27,10 +25,10 @@ authForm.addEventListener('submit', async (ev) => {
 
 const chekToken = async () => {
     token = localStorage.getItem('token');
-    console.log('token: ', token);
     if (!token) return;
-
-    authBlock.innerHTML = 'Залогинено, юхуху'
+    const {data} = await axios.post('/chekToken', {token});
+    const {login, id} = data;
+    authBlock.innerHTML = 'Залогинено, юхуху! Привет ' + login; 
 }
 
 chekToken();
